@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenCpp Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for OpenCpp, a C++ code editor and compiler workspace developed and maintained by the VYORA.AI Team." />
+    <style>
+        /* ============================================================
+               CSS Variables & Reset
+            ============================================================ */
+        :root {
+            --color-bg: #f8f9fc;
+            --color-surface: #ffffff;
+            --color-surface-alt: #f1f3f7;
+            --color-text: #1a1e2c;
+            --color-text-secondary: #4a5068;
+            --color-text-muted: #6e748b;
+            --color-border: #dce0e8;
+            --color-border-light: #e9ecf2;
+            --color-accent: #2563eb;
+            --color-accent-hover: #1d4ed8;
+            --color-accent-light: #dbe7fe;
+            --color-accent-soft: #eef3ff;
+            --color-shadow: rgba(0, 0, 0, 0.06);
+            --color-shadow-hover: rgba(0, 0, 0, 0.10);
+            --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: "SF Mono", "Menlo", "Monaco", "Cascadia Code", "Roboto Mono", "Consolas", "Courier New", monospace;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-xs: 4px;
+            --max-width: 960px;
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 36px;
+            --spacing-xxl: 52px;
+            --transition: 180ms ease;
+        }
+
+        /* ============================================================
+               Reset & Base
+            ============================================================ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            font-size: 16px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: var(--font-base);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.65;
+            padding: var(--spacing-lg) var(--spacing-md);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover,
+        a:focus {
+            color: var(--color-accent-hover);
+            text-decoration: underline;
+        }
+        a:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-xs);
+        }
+
+        /* ============================================================
+               Container
+            ============================================================ */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 4px var(--color-shadow), 0 8px 24px var(--color-shadow);
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: var(--spacing-xxl) var(--spacing-xl);
+            }
+        }
+        @media (min-width: 1024px) {
+            body {
+                padding: var(--spacing-xxl) var(--spacing-xl);
+            }
+        }
+
+        /* ============================================================
+               Header / Brand
+            ============================================================ */
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--color-border-light);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            flex-shrink: 0;
+        }
+
+        .brand-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--color-accent-soft);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-accent-light);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .brand-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            line-height: 1.2;
+        }
+        .brand-name span {
+            color: var(--color-accent);
+        }
+
+        .brand-tag {
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-muted);
+            background: var(--color-surface-alt);
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            border: 1px solid var(--color-border-light);
+            margin-left: var(--spacing-sm);
+            vertical-align: middle;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+        .header-nav a {
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color var(--transition), color var(--transition);
+        }
+        .header-nav a:hover,
+        .header-nav a:focus {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom-color: var(--color-accent);
+        }
+        .header-nav a:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: var(--radius-xs);
+        }
+
+        /* ============================================================
+               Hero / Title
+            ============================================================ */
+        .hero {
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-sm);
+        }
+        .hero h1 .accent {
+            color: var(--color-accent);
+        }
+
+        .hero .effective-date {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xs);
+        }
+        .hero .effective-date::before {
+            content: "📅";
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        @media (min-width: 640px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+
+        /* ============================================================
+               Table of Contents
+            ============================================================ */
+        .toc {
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-lg) var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--color-border-light);
+        }
+
+        .toc-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xs) 0;
+        }
+
+        .toc-list li {
+            padding: var(--spacing-xs) 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .toc-list a {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--color-text-secondary);
+            font-weight: 450;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            margin: 0 calc(-1 * var(--spacing-sm));
+            border-radius: var(--radius-xs);
+            transition: background var(--transition), color var(--transition);
+        }
+        .toc-list a:hover,
+        .toc-list a:focus {
+            background: var(--color-accent-soft);
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+        .toc-list a:focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 1px;
+        }
+
+        .toc-list .toc-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 1.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            font-family: var(--font-mono);
+            background: var(--color-accent-light);
+            border-radius: 20px;
+            padding: 0 0.4rem;
+            height: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 540px) {
+            .toc-list {
+                grid-template-columns: 1fr 1fr;
+                column-gap: var(--spacing-lg);
+            }
+        }
+        @media (min-width: 860px) {
+            .toc-list {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        /* ============================================================
+               Policy Sections
+            ============================================================ */
+        .policy-section {
+            padding: var(--spacing-lg) 0;
+            border-bottom: 1px solid var(--color-border-light);
+            scroll-margin-top: var(--spacing-lg);
+        }
+        .policy-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .policy-section h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: baseline;
+            gap: var(--spacing-sm);
+        }
+        .policy-section h2 .section-num {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            background: var(--color-accent-soft);
+            padding: 0.1rem 0.6rem;
+            border-radius: 20px;
+            flex-shrink: 0;
+        }
+
+        .policy-section p {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-secondary);
+        }
+        .policy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section ul,
+        .policy-section ol {
+            margin: var(--spacing-md) 0 var(--spacing-md) var(--spacing-lg);
+            color: var(--color-text-secondary);
+        }
+        .policy-section li {
+            margin-bottom: var(--spacing-sm);
+        }
+        .policy-section li:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        /* Third-party services bullet list (Section 8) */
+        .third-party-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0 0 0;
+        }
+        .third-party-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) var(--spacing-md);
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--color-accent);
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.95rem;
+        }
+        .third-party-list li:last-child {
+            margin-bottom: 0;
+        }
+        .third-party-list .tp-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            background: var(--color-accent-light);
+            padding: 0.1rem 0.6rem;
+            border-radius: 20px;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        .third-party-list .tp-text {
+            color: var(--color-text-secondary);
+        }
+        .third-party-list .tp-text strong {
+            color: var(--color-text);
+        }
+
+        /* ============================================================
+               Contact Section
+            ============================================================ */
+        .contact-block {
+            background: var(--color-accent-soft);
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-lg) var(--spacing-lg);
+            border: 1px solid var(--color-accent-light);
+            margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+        }
+        .contact-block .contact-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--color-text-muted);
+        }
+        .contact-block .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--spacing-md) var(--spacing-lg);
+        }
+        .contact-block .contact-details .email {
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+        .contact-block .contact-details .team {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+        }
+        .contact-block .contact-details .team strong {
+            color: var(--color-text);
+        }
+
+        @media (max-width: 480px) {
+            .contact-block {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--spacing-sm);
+            }
+            .contact-block .contact-details {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-xs);
+            }
+        }
+
+        /* ============================================================
+               Final Disclaimer
+            ============================================================ */
+        .disclaimer {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--color-surface-alt);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border-light);
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+        .disclaimer strong {
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================================
+               Footer
+            ============================================================ */
+        .app-footer {
+            margin-top: var(--spacing-xxl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--color-border-light);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-md) var(--spacing-lg);
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+        .app-footer .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-weight: 600;
+            color: var(--color-text);
+        }
+        .app-footer .footer-brand .brand-icon-small {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--color-accent-soft);
+            border-radius: var(--radius-xs);
+            border: 1px solid var(--color-accent-light);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .app-footer .footer-brand .brand-icon-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .app-footer .footer-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--spacing-md) var(--spacing-lg);
+        }
+        .app-footer .footer-meta a {
+            color: var(--color-text-secondary);
+            font-weight: 450;
+        }
+        .app-footer .footer-meta a:hover,
+        .app-footer .footer-meta a:focus {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 540px) {
+            .app-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-md);
+            }
+            .app-footer .footer-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-xs);
+            }
+        }
+
+        /* ============================================================
+               Print Styles
+            ============================================================ */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0.5in;
+                font-size: 11pt;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                border-radius: 0;
+            }
+            .app-header {
+                border-bottom: 2px solid #000;
+                margin-bottom: 18pt;
+            }
+            .brand-icon {
+                border-color: #000;
+                background: #eee;
+            }
+            .brand-icon img {
+                filter: grayscale(100%);
+            }
+            .toc {
+                background: #f5f5f5;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+            .toc-list a {
+                color: #000;
+            }
+            .toc-list .toc-num {
+                background: #e0e0e0;
+                color: #000;
+            }
+            .policy-section {
+                border-bottom: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            .policy-section h2 .section-num {
+                background: #eee;
+                color: #000;
+            }
+            .contact-block {
+                border: 1px solid #ccc;
+                background: #f9f9f9;
+            }
+            .third-party-list li {
+                border-left-color: #000;
+                background: #f5f5f5;
+            }
+            .disclaimer {
+                border: 1px solid #ccc;
+                background: #f9f9f9;
+            }
+            .app-footer {
+                border-top: 2px solid #000;
+            }
+            .app-footer .footer-brand .brand-icon-small {
+                border-color: #000;
+                background: #eee;
+            }
+            .app-footer .footer-brand .brand-icon-small img {
+                filter: grayscale(100%);
+            }
+            .header-nav a {
+                border-bottom-color: transparent !important;
+            }
+            a {
+                color: #000 !important;
+                text-decoration: underline !important;
+            }
+            .hero h1 {
+                font-size: 24pt;
+            }
+            .toc-list {
+                grid-template-columns: 1fr 1fr;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* ============================================================
+               Utilities & Accessibility helpers
+            ============================================================ */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus visible for keyboard navigation */
+        :focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* High contrast / reduced motion overrides */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ============================================================
+               Responsive fine-tuning
+            ============================================================ */
+        @media (max-width: 420px) {
+            .container {
+                padding: var(--spacing-md);
+                border-radius: var(--radius-sm);
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .brand-name {
+                font-size: 1.1rem;
+            }
+            .brand-icon {
+                width: 36px;
+                height: 36px;
+            }
+            .policy-section h2 {
+                font-size: 1.1rem;
+            }
+            .toc {
+                padding: var(--spacing-md);
+            }
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+            .contact-block {
+                padding: var(--spacing-md);
+            }
+            .third-party-list li {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+            .app-footer {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            body {
+                padding: var(--spacing-sm);
+            }
+            .container {
+                padding: var(--spacing-sm);
+                border-radius: var(--radius-xs);
+            }
+            .hero h1 {
+                font-size: 1.25rem;
+            }
+            .brand-name {
+                font-size: 1rem;
+            }
+            .brand-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .policy-section h2 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" role="main">
+
+        <!-- ============================================================
+        HEADER
+        ============================================================ -->
+        <header class="app-header" aria-label="Site header">
+            <div class="brand">
+                <div class="brand-icon" aria-hidden="true">
+                    <img src="logo opencpp main.png" alt="OpenCpp app logo">
+                </div>
+                <div class="brand-name">
+                    OpenCpp
+                    <span class="brand-tag">v1.0</span>
+                </div>
+            </div>
+            <nav class="header-nav" aria-label="Primary navigation">
+                <a href="#policy-content" aria-current="page">Privacy Policy</a>
+            </nav>
+        </header>
+
+        <!-- ============================================================
+        HERO
+        ============================================================ -->
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">
+                OpenCpp <span class="accent">Privacy Policy</span>
+            </h1>
+            <div class="effective-date">
+                Effective date: August 11, 2026
+            </div>
+        </section>
+
+        <!-- ============================================================
+        TABLE OF CONTENTS
+        ============================================================ -->
+        <nav class="toc" aria-label="Table of contents" id="toc">
+            <span class="toc-label">Contents</span>
+            <ul class="toc-list">
+                <li><a href="#section-1"><span class="toc-num">1</span> Introduction</a></li>
+                <li><a href="#section-2"><span class="toc-num">2</span> Information the App Handles</a></li>
+                <li><a href="#section-3"><span class="toc-num">3</span> Locally Stored Files and Project Data</a></li>
+                <li><a href="#section-4"><span class="toc-num">4</span> How Information Is Used</a></li>
+                <li><a href="#section-5"><span class="toc-num">5</span> File Access and Permissions</a></li>
+                <li><a href="#section-6"><span class="toc-num">6</span> Third-Party Services</a></li>
+                <li><a href="#section-7"><span class="toc-num">7</span> Data Storage and Retention</a></li>
+                <li><a href="#section-8"><span class="toc-num">8</span> Data Sharing</a></li>
+                <li><a href="#section-9"><span class="toc-num">9</span> Security</a></li>
+                <li><a href="#section-10"><span class="toc-num">10</span> Children's Privacy</a></li>
+                <li><a href="#section-11"><span class="toc-num">11</span> User Rights</a></li>
+                <li><a href="#section-12"><span class="toc-num">12</span> Changes to This Privacy Policy</a></li>
+                <li><a href="#section-13"><span class="toc-num">13</span> Contact Information</a></li>
+            </ul>
+        </nav>
+
+        <!-- ============================================================
+        POLICY CONTENT
+        ============================================================ -->
+        <div id="policy-content">
+
+            <!-- Section 1 -->
+            <section class="policy-section" id="section-1" aria-labelledby="s1-title">
+                <h2 id="s1-title"><span class="section-num">1</span> Introduction</h2>
+                <p>This Privacy Policy explains how OpenCpp ("the app") handles information when you use it. OpenCpp is developed and maintained by the VYORA.AI Team. This document describes the app's actual current behavior, not a generic template.</p>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="policy-section" id="section-2" aria-labelledby="s2-title">
+                <h2 id="s2-title"><span class="section-num">2</span> Information the App Handles</h2>
+                <p>OpenCpp is a C++ code editor and compiler workspace. The information it handles is limited to: the C++ source files and project data you create, open, or import; your app preferences (theme, editor font size, tab size, word wrap, line numbers, auto-save, sort order, and favorited files); and a local "recent files" list recording which files you've opened and when. OpenCpp does not require you to create an account and does not collect your name, email address, or other personal identifiers to use the app.</p>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="policy-section" id="section-3" aria-labelledby="s3-title">
+                <h2 id="s3-title"><span class="section-num">3</span> Locally Stored Files and Project Data</h2>
+                <p>Your C++ source files, projects, and app preferences are stored locally on your device using Android's Room database and DataStore preferences storage. This data is not automatically synced to any cloud service and remains on your device unless you explicitly share, export, or transmit it (see Section 6).</p>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="policy-section" id="section-4" aria-labelledby="s4-title">
+                <h2 id="s4-title"><span class="section-num">4</span> How Information Is Used</h2>
+                <p>Locally stored data is used solely to provide the app's functionality: displaying your files, remembering your editor preferences, showing your recent projects, and letting you compile and run your code. OpenCpp does not use your source code or file content for advertising, profiling, or any purpose unrelated to operating the app's features.</p>
+            </section>
+
+            <!-- Section 5 -->
+            <section class="policy-section" id="section-5" aria-labelledby="s5-title">
+                <h2 id="s5-title"><span class="section-num">5</span> File Access and Permissions</h2>
+                <p>When you open a C++ file from another app (Google Drive, Files, WhatsApp, Gmail, Google Classroom, or similar, via Android's "Open With"/"Share" feature), OpenCpp reads that file's content only through the specific, limited access the sending app grants for that file. OpenCpp does not request or hold broad storage permissions on your device.</p>
+            </section>
+
+            <!-- Section 6 -->
+            <section class="policy-section" id="section-6" aria-labelledby="s6-title">
+                <h2 id="s6-title"><span class="section-num">6</span> Third-Party Services</h2>
+                <p>OpenCpp uses certain third-party services to provide advertising, subscription, and code-execution functionality.</p>
+                <p>When you use OpenCpp's "Run" feature, the C++ source code you are running (and any input you provide it) is sent over the network to OpenCpp's backend service, which in turn uses Judge0, a third-party code execution engine, to compile and run your code and return the result. This transmission happens only when you explicitly choose to compile or run code. OpenCpp does not control, and this policy cannot make representations about, how long Judge0 or the backend infrastructure retains submitted code after processing it.</p>
+                <p>OpenCpp uses <strong>Google AdMob</strong> to display advertisements to users of the free version of the app. AdMob may process certain information, including device or advertising-related information, as necessary to provide, measure, and personalize advertising in accordance with Google's applicable policies and settings. OpenCpp does not directly control the information collected or processed by Google through its advertising services.</p>
+                <p>OpenCpp also offers <strong>optional paid subscriptions</strong>. Subscription purchases are processed through <strong>Google Play's billing system</strong>. OpenCpp does not directly receive or store your full payment card, bank account, or other payment-method details. Google Play handles payment processing and subscription billing according to Google's applicable terms and policies.</p>
+            </section>
+
+            <!-- Section 7 -->
+            <section class="policy-section" id="section-7" aria-labelledby="s7-title">
+                <h2 id="s7-title"><span class="section-num">7</span> Data Storage and Retention</h2>
+                <p>Locally stored files, projects, and preferences remain on your device until you delete them within the app or uninstall OpenCpp, at which point Android removes the app's local data.</p>
+                <p>Code submitted for compilation/execution through OpenCpp's "Run" feature is handled by OpenCpp's backend and Judge0 for the duration needed to process that request. OpenCpp does not control or make representations about third-party retention practices outside its own systems.</p>
+                <p>Advertising-related information processed by Google AdMob and subscription-related information processed by Google Play are subject to Google's applicable privacy policies, retention practices, and account settings.</p>
+            </section>
+
+            <!-- Section 8 -->
+            <section class="policy-section" id="section-8" aria-labelledby="s8-title">
+                <h2 id="s8-title"><span class="section-num">8</span> Data Sharing</h2>
+                <p>OpenCpp does not sell your personal data.</p>
+                <p>OpenCpp shares information with third-party services only when necessary to provide specific app functionality:</p>
+                <ul class="third-party-list">
+                    <li>
+                        <span class="tp-badge">Judge0</span>
+                        <span class="tp-text"><strong>Judge0 / OpenCpp backend:</strong> C++ source code and input that you explicitly submit through the "Run" feature, so that your code can be compiled and executed.</span>
+                    </li>
+                    <li>
+                        <span class="tp-badge">AdMob</span>
+                        <span class="tp-text"><strong>Google AdMob:</strong> Information necessary for displaying and delivering advertisements in the free version of OpenCpp. Google may process device and advertising-related information as described in Google's applicable policies.</span>
+                    </li>
+                    <li>
+                        <span class="tp-badge">Play</span>
+                        <span class="tp-text"><strong>Google Play:</strong> Information necessary to process and manage optional OpenCpp subscriptions and purchases. Payment details are handled by Google Play rather than stored directly by OpenCpp.</span>
+                    </li>
+                </ul>
+                <p style="margin-top: var(--spacing-md);">These third-party services operate under their own privacy policies and terms. OpenCpp does not sell your data to these services.</p>
+            </section>
+
+            <!-- Section 9 -->
+            <section class="policy-section" id="section-9" aria-labelledby="s9-title">
+                <h2 id="s9-title"><span class="section-num">9</span> Security</h2>
+                <p>OpenCpp's backend communication uses standard network transport; local data is protected by Android's own app-sandboxing and storage protections. No system can guarantee absolute security, and this policy makes no such claim.</p>
+            </section>
+
+            <!-- Section 10 -->
+            <section class="policy-section" id="section-10" aria-labelledby="s10-title">
+                <h2 id="s10-title"><span class="section-num">10</span> Children's Privacy</h2>
+                <p>OpenCpp does not knowingly direct itself at, or collect personal information from, children. The app has no account system or age verification; it functions as a general-purpose code editor.</p>
+            </section>
+
+            <!-- Section 11 -->
+            <section class="policy-section" id="section-11" aria-labelledby="s11-title">
+                <h2 id="s11-title"><span class="section-num">11</span> User Rights</h2>
+                <p>Because your files and preferences are stored locally, you can view, edit, or delete them directly within the app (File Manager, Editor) or by uninstalling the app, which removes its local data from your device.</p>
+            </section>
+
+            <!-- Section 12 -->
+            <section class="policy-section" id="section-12" aria-labelledby="s12-title">
+                <h2 id="s12-title"><span class="section-num">12</span> Changes to This Privacy Policy</h2>
+                <p>This policy may be updated as OpenCpp's features change. Continued use of the app after an update constitutes acceptance of the revised policy.</p>
+            </section>
+
+            <!-- Section 13 -->
+            <section class="policy-section" id="section-13" aria-labelledby="s13-title">
+                <h2 id="s13-title"><span class="section-num">13</span> Contact Information</h2>
+                <p>Questions about this policy or OpenCpp's data practices can be sent to: <a href="mailto:bitf25m522@pucit.edu.pk">bitf25m522@pucit.edu.pk</a> (VYORA.AI Team).</p>
+            </section>
+
+        </div>
+        <!-- /policy-content -->
+
+        <!-- ============================================================
+        CONTACT BLOCK (visual distinct)
+        ============================================================ -->
+        <div class="contact-block" aria-label="Contact information">
+            <span class="contact-label">Contact</span>
+            <div class="contact-details">
+                <span class="email"><a href="mailto:bitf25m522@pucit.edu.pk">bitf25m522@pucit.edu.pk</a></span>
+                <span class="team"><strong>VYORA.AI Team</strong></span>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        FINAL DISCLAIMER
+        ============================================================ -->
+        <aside class="disclaimer" aria-label="Disclaimer">
+            <strong>Disclaimer:</strong> This document describes OpenCpp's behavior as of the effective date above and is not a substitute for legal advice.
+        </aside>
+
+        <!-- ============================================================
+        FOOTER
+        ============================================================ -->
+        <footer class="app-footer" aria-label="Site footer">
+            <div class="footer-brand">
+                <span class="brand-icon-small" aria-hidden="true">
+                    <img src="logo opencpp main.png" alt="">
+                </span>
+                OpenCpp
+            </div>
+            <div class="footer-meta">
+                <span>Developed and maintained by the <strong>VYORA.AI Team</strong></span>
+                <a href="mailto:bitf25m522@pucit.edu.pk">bitf25m522@pucit.edu.pk</a>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /container -->
+
+    <!-- ============================================================
+    Smooth scroll enhancement (minimal, progressive)
+    ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Only apply if the browser supports smooth scrolling and user hasn't requested reduced motion
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) return;
+
+            // Use native smooth scroll for all anchor links with hash targets
+            document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    const href = link.getAttribute('href');
+                    if (href === '#') return;
+                    const targetId = href.substring(1);
+                    const target = document.getElementById(targetId);
+                    if (!target) return;
+
+                    // Check if the target is in the same page
+                    if (target) {
+                        e.preventDefault();
+                        try {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            // Update URL hash without causing scroll jump
+                            history.pushState(null, null, href);
+                        } catch (_) {
+                            // Fallback for older browsers
+                            window.location.hash = href;
+                        }
+                    }
+                });
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
