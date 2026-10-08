@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenCpp Privacy Policy</title>
-    <meta name="description" content="Privacy Policy for OpenCpp, a C++ code editor and compiler workspace developed and maintained by the VYORA.AI Team." />
+    <title>Sync4 Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for Sync4, a four-language Android coding environment for C, C++, Python, and C#, developed and maintained by the VYORA.AI Team." />
     <style>
         /* ============================================================
                CSS Variables & Reset
@@ -141,19 +141,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: var(--color-accent-soft);
+            width: 52px;
+            height: 52px;
+            background: #1a1e2c;
             border-radius: var(--radius-sm);
-            border: 1px solid var(--color-accent-light);
+            border: 1px solid var(--color-border);
             flex-shrink: 0;
             overflow: hidden;
+            padding: 3px;
         }
         .brand-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             display: block;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            line-height: 1.15;
         }
 
         .brand-name {
@@ -167,18 +175,11 @@
             color: var(--color-accent);
         }
 
-        .brand-tag {
-            font-size: 0.7rem;
+        .brand-tagline {
+            font-size: 0.75rem;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
             color: var(--color-text-muted);
-            background: var(--color-surface-alt);
-            padding: 0.15rem 0.6rem;
-            border-radius: 20px;
-            border: 1px solid var(--color-border-light);
-            margin-left: var(--spacing-sm);
-            vertical-align: middle;
+            letter-spacing: 0.01em;
         }
 
         .header-nav {
@@ -391,6 +392,40 @@
             font-weight: 600;
         }
 
+        .policy-section code {
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            background: var(--color-surface-alt);
+            padding: 0.1rem 0.4rem;
+            border-radius: var(--radius-xs);
+            border: 1px solid var(--color-border-light);
+            color: var(--color-text);
+        }
+
+        /* Language chips (supported languages) */
+        .lang-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0 var(--spacing-md) 0;
+            padding: 0;
+            list-style: none;
+        }
+        .lang-chips li {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            background: var(--color-accent-soft);
+            border: 1px solid var(--color-accent-light);
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            margin: 0;
+        }
+
         /* Third-party services bullet list (Section 8) */
         .third-party-list {
             list-style: none;
@@ -460,6 +495,7 @@
         .contact-block .contact-details .email {
             font-weight: 500;
             font-size: 1.05rem;
+            word-break: break-word;
         }
         .contact-block .contact-details .team {
             font-size: 0.95rem;
@@ -525,13 +561,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 28px;
-            height: 28px;
-            background: var(--color-accent-soft);
+            width: 32px;
+            height: 32px;
+            background: #1a1e2c;
             border-radius: var(--radius-xs);
-            border: 1px solid var(--color-accent-light);
+            border: 1px solid var(--color-border);
             flex-shrink: 0;
             overflow: hidden;
+            padding: 2px;
         }
         .app-footer .footer-brand .brand-icon-small img {
             width: 100%;
@@ -548,6 +585,7 @@
         .app-footer .footer-meta a {
             color: var(--color-text-secondary);
             font-weight: 450;
+            word-break: break-word;
         }
         .app-footer .footer-meta a:hover,
         .app-footer .footer-meta a:focus {
@@ -587,11 +625,13 @@
                 border-bottom: 2px solid #000;
                 margin-bottom: 18pt;
             }
-            .brand-icon {
+            .brand-icon,
+            .brand-icon-small {
                 border-color: #000;
                 background: #eee;
             }
-            .brand-icon img {
+            .brand-icon img,
+            .brand-icon-small img {
                 filter: grayscale(100%);
             }
             .toc {
@@ -622,19 +662,17 @@
                 border-left-color: #000;
                 background: #f5f5f5;
             }
+            .lang-chips li {
+                background: #eee;
+                color: #000;
+                border-color: #ccc;
+            }
             .disclaimer {
                 border: 1px solid #ccc;
                 background: #f9f9f9;
             }
             .app-footer {
                 border-top: 2px solid #000;
-            }
-            .app-footer .footer-brand .brand-icon-small {
-                border-color: #000;
-                background: #eee;
-            }
-            .app-footer .footer-brand .brand-icon-small img {
-                filter: grayscale(100%);
             }
             .header-nav a {
                 border-bottom-color: transparent !important;
@@ -669,13 +707,11 @@
             border: 0;
         }
 
-        /* Focus visible for keyboard navigation */
         :focus-visible {
             outline: 3px solid var(--color-accent);
             outline-offset: 2px;
         }
 
-        /* High contrast / reduced motion overrides */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -699,8 +735,8 @@
                 font-size: 1.1rem;
             }
             .brand-icon {
-                width: 36px;
-                height: 36px;
+                width: 44px;
+                height: 44px;
             }
             .policy-section h2 {
                 font-size: 1.1rem;
@@ -739,8 +775,8 @@
                 font-size: 1rem;
             }
             .brand-icon {
-                width: 32px;
-                height: 32px;
+                width: 40px;
+                height: 40px;
             }
             .policy-section h2 {
                 font-size: 1rem;
@@ -758,11 +794,14 @@
         <header class="app-header" aria-label="Site header">
             <div class="brand">
                 <div class="brand-icon" aria-hidden="true">
-                    <img src="logo opencpp main.png" alt="OpenCpp app logo">
+                    <!-- Save the supplied Sync4 logo image as sync4-logo.png in the same directory as this file -->
+                    <img src="sync4-logo.png" alt="Sync4 logo">
                 </div>
-                <div class="brand-name">
-                    OpenCpp
-                    <span class="brand-tag">v1.0</span>
+                <div class="brand-text">
+                    <div class="brand-name">
+                        Sync<span>4</span>
+                    </div>
+                    <div class="brand-tagline">Four languages. One coding environment.</div>
                 </div>
             </div>
             <nav class="header-nav" aria-label="Primary navigation">
@@ -775,7 +814,7 @@
         ============================================================ -->
         <section class="hero" aria-labelledby="hero-title">
             <h1 id="hero-title">
-                OpenCpp <span class="accent">Privacy Policy</span>
+                Sync4 <span class="accent">Privacy Policy</span>
             </h1>
             <div class="effective-date">
                 Effective date: August 11, 2026
@@ -812,82 +851,89 @@
             <!-- Section 1 -->
             <section class="policy-section" id="section-1" aria-labelledby="s1-title">
                 <h2 id="s1-title"><span class="section-num">1</span> Introduction</h2>
-                <p>This Privacy Policy explains how OpenCpp ("the app") handles information when you use it. OpenCpp is developed and maintained by the VYORA.AI Team. This document describes the app's actual current behavior, not a generic template.</p>
+                <p>This Privacy Policy explains how Sync4 ("the app") handles information when you use it. Sync4 is developed and maintained by the VYORA.AI Team. This document describes the app's actual current behavior, not a generic template.</p>
             </section>
 
             <!-- Section 2 -->
             <section class="policy-section" id="section-2" aria-labelledby="s2-title">
                 <h2 id="s2-title"><span class="section-num">2</span> Information the App Handles</h2>
-                <p>OpenCpp is a C++ code editor and compiler workspace. The information it handles is limited to: the C++ source files and project data you create, open, or import; your app preferences (theme, editor font size, tab size, word wrap, line numbers, auto-save, sort order, and favorited files); and a local "recent files" list recording which files you've opened and when. OpenCpp does not require you to create an account and does not collect your name, email address, or other personal identifiers to use the app.</p>
+                <p>Sync4 is a multi-language coding environment for Android supporting the following languages:</p>
+                <ul class="lang-chips" aria-label="Supported languages">
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>Python</li>
+                    <li>C#</li>
+                </ul>
+                <p>The information the app handles is limited to: the source files and project data you create, open, or import; your app preferences (theme, editor font size, tab size, word wrap, line numbers, auto-save, sort order, and favorited files); and a local "recent files" list recording which files you've opened and when. Sync4 does not require you to create an account and does not collect your name, email address, or other personal identifiers to use the app.</p>
             </section>
 
             <!-- Section 3 -->
             <section class="policy-section" id="section-3" aria-labelledby="s3-title">
                 <h2 id="s3-title"><span class="section-num">3</span> Locally Stored Files and Project Data</h2>
-                <p>Your C++ source files, projects, and app preferences are stored locally on your device using Android's Room database and DataStore preferences storage. This data is not automatically synced to any cloud service and remains on your device unless you explicitly share, export, or transmit it (see Section 6).</p>
+                <p>Your source files, projects, and app preferences are stored locally on your device using Android's Room database and DataStore preferences storage. This data is not automatically synced to any cloud service and remains on your device unless you explicitly share, export, or transmit it (see Section 6).</p>
             </section>
 
             <!-- Section 4 -->
             <section class="policy-section" id="section-4" aria-labelledby="s4-title">
                 <h2 id="s4-title"><span class="section-num">4</span> How Information Is Used</h2>
-                <p>Locally stored data is used solely to provide the app's functionality: displaying your files, remembering your editor preferences, showing your recent projects, and letting you compile and run your code. OpenCpp does not use your source code or file content for advertising, profiling, or any purpose unrelated to operating the app's features.</p>
+                <p>Locally stored data is used solely to provide the app's functionality: displaying your files, remembering your editor preferences, showing your recent projects, and letting you compile and run your code. Sync4 does not use your source code or file content for advertising, profiling, or any purpose unrelated to operating the app's features.</p>
             </section>
 
             <!-- Section 5 -->
             <section class="policy-section" id="section-5" aria-labelledby="s5-title">
                 <h2 id="s5-title"><span class="section-num">5</span> File Access and Permissions</h2>
-                <p>When you open a C++ file from another app (Google Drive, Files, WhatsApp, Gmail, Google Classroom, or similar, via Android's "Open With"/"Share" feature), OpenCpp reads that file's content only through the specific, limited access the sending app grants for that file. OpenCpp does not request or hold broad storage permissions on your device.</p>
+                <p>When you open a source file from another app (Google Drive, Files, WhatsApp, Gmail, Google Classroom, or similar, via Android's "Open With"/"Share" feature), Sync4 reads that file's content only through the specific, limited access the sending app grants for that file. Sync4 does not request or hold broad storage permissions on your device.</p>
             </section>
 
             <!-- Section 6 -->
             <section class="policy-section" id="section-6" aria-labelledby="s6-title">
                 <h2 id="s6-title"><span class="section-num">6</span> Third-Party Services</h2>
-                <p>OpenCpp uses certain third-party services to provide advertising, subscription, and code-execution functionality.</p>
-                <p>When you use OpenCpp's "Run" feature, the C++ source code you are running (and any input you provide it) is sent over the network to OpenCpp's backend service, which in turn uses Judge0, a third-party code execution engine, to compile and run your code and return the result. This transmission happens only when you explicitly choose to compile or run code. OpenCpp does not control, and this policy cannot make representations about, how long Judge0 or the backend infrastructure retains submitted code after processing it.</p>
-                <p>OpenCpp uses <strong>Google AdMob</strong> to display advertisements to users of the free version of the app. AdMob may process certain information, including device or advertising-related information, as necessary to provide, measure, and personalize advertising in accordance with Google's applicable policies and settings. OpenCpp does not directly control the information collected or processed by Google through its advertising services.</p>
-                <p>OpenCpp also offers <strong>optional paid subscriptions</strong>. Subscription purchases are processed through <strong>Google Play's billing system</strong>. OpenCpp does not directly receive or store your full payment card, bank account, or other payment-method details. Google Play handles payment processing and subscription billing according to Google's applicable terms and policies.</p>
+                <p>Sync4 uses certain third-party services to provide advertising, subscription, and code-execution functionality.</p>
+                <p>When you use Sync4's "Run" feature, the source code you are running (and any input you provide it) is sent over the network to Sync4's backend service, which in turn uses Judge0, a third-party code execution engine, to compile and run your code and return the result. This transmission happens only when you explicitly choose to compile or run code. Sync4 does not control, and this policy cannot make representations about, how long Judge0 or the backend infrastructure retains submitted code after processing it.</p>
+                <p>Sync4 uses <strong>Google AdMob</strong> to display advertisements to users of the free version of the app. AdMob may process certain information, including device or advertising-related information, as necessary to provide, measure, and personalize advertising in accordance with Google's applicable policies and settings. Sync4 does not directly control the information collected or processed by Google through its advertising services.</p>
+                <p>Sync4 also offers <strong>optional paid subscriptions</strong>. Subscription purchases are processed through <strong>Google Play's billing system</strong>. Sync4 does not directly receive or store your full payment card, bank account, or other payment-method details. Google Play handles payment processing and subscription billing according to Google's applicable terms and policies.</p>
             </section>
 
             <!-- Section 7 -->
             <section class="policy-section" id="section-7" aria-labelledby="s7-title">
                 <h2 id="s7-title"><span class="section-num">7</span> Data Storage and Retention</h2>
-                <p>Locally stored files, projects, and preferences remain on your device until you delete them within the app or uninstall OpenCpp, at which point Android removes the app's local data.</p>
-                <p>Code submitted for compilation/execution through OpenCpp's "Run" feature is handled by OpenCpp's backend and Judge0 for the duration needed to process that request. OpenCpp does not control or make representations about third-party retention practices outside its own systems.</p>
+                <p>Locally stored files, projects, and preferences remain on your device until you delete them within the app or uninstall Sync4, at which point Android removes the app's local data.</p>
+                <p>Code submitted for compilation/execution through Sync4's "Run" feature is handled by Sync4's backend and Judge0 for the duration needed to process that request. Sync4 does not control or make representations about third-party retention practices outside its own systems.</p>
                 <p>Advertising-related information processed by Google AdMob and subscription-related information processed by Google Play are subject to Google's applicable privacy policies, retention practices, and account settings.</p>
             </section>
 
             <!-- Section 8 -->
             <section class="policy-section" id="section-8" aria-labelledby="s8-title">
                 <h2 id="s8-title"><span class="section-num">8</span> Data Sharing</h2>
-                <p>OpenCpp does not sell your personal data.</p>
-                <p>OpenCpp shares information with third-party services only when necessary to provide specific app functionality:</p>
+                <p>Sync4 does not sell your personal data.</p>
+                <p>Sync4 shares information with third-party services only when necessary to provide specific app functionality:</p>
                 <ul class="third-party-list">
                     <li>
                         <span class="tp-badge">Judge0</span>
-                        <span class="tp-text"><strong>Judge0 / OpenCpp backend:</strong> C++ source code and input that you explicitly submit through the "Run" feature, so that your code can be compiled and executed.</span>
+                        <span class="tp-text"><strong>Judge0 / Sync4 backend:</strong> Source code and input that you explicitly submit through the "Run" feature, so that your code can be compiled and executed.</span>
                     </li>
                     <li>
                         <span class="tp-badge">AdMob</span>
-                        <span class="tp-text"><strong>Google AdMob:</strong> Information necessary for displaying and delivering advertisements in the free version of OpenCpp. Google may process device and advertising-related information as described in Google's applicable policies.</span>
+                        <span class="tp-text"><strong>Google AdMob:</strong> Information necessary for displaying and delivering advertisements in the free version of Sync4. Google may process device and advertising-related information as described in Google's applicable policies.</span>
                     </li>
                     <li>
                         <span class="tp-badge">Play</span>
-                        <span class="tp-text"><strong>Google Play:</strong> Information necessary to process and manage optional OpenCpp subscriptions and purchases. Payment details are handled by Google Play rather than stored directly by OpenCpp.</span>
+                        <span class="tp-text"><strong>Google Play:</strong> Information necessary to process and manage optional Sync4 subscriptions and purchases. Payment details are handled by Google Play rather than stored directly by Sync4.</span>
                     </li>
                 </ul>
-                <p style="margin-top: var(--spacing-md);">These third-party services operate under their own privacy policies and terms. OpenCpp does not sell your data to these services.</p>
+                <p style="margin-top: var(--spacing-md);">These third-party services operate under their own privacy policies and terms. Sync4 does not sell your data to these services.</p>
             </section>
 
             <!-- Section 9 -->
             <section class="policy-section" id="section-9" aria-labelledby="s9-title">
                 <h2 id="s9-title"><span class="section-num">9</span> Security</h2>
-                <p>OpenCpp's backend communication uses standard network transport; local data is protected by Android's own app-sandboxing and storage protections. No system can guarantee absolute security, and this policy makes no such claim.</p>
+                <p>Sync4's backend communication uses standard network transport; local data is protected by Android's own app-sandboxing and storage protections. No system can guarantee absolute security, and this policy makes no such claim.</p>
             </section>
 
             <!-- Section 10 -->
             <section class="policy-section" id="section-10" aria-labelledby="s10-title">
                 <h2 id="s10-title"><span class="section-num">10</span> Children's Privacy</h2>
-                <p>OpenCpp does not knowingly direct itself at, or collect personal information from, children. The app has no account system or age verification; it functions as a general-purpose code editor.</p>
+                <p>Sync4 does not knowingly direct itself at, or collect personal information from, children. The app has no account system or age verification; it functions as a general-purpose code editor.</p>
             </section>
 
             <!-- Section 11 -->
@@ -899,13 +945,13 @@
             <!-- Section 12 -->
             <section class="policy-section" id="section-12" aria-labelledby="s12-title">
                 <h2 id="s12-title"><span class="section-num">12</span> Changes to This Privacy Policy</h2>
-                <p>This policy may be updated as OpenCpp's features change. Continued use of the app after an update constitutes acceptance of the revised policy.</p>
+                <p>This policy may be updated as Sync4's features change. Continued use of the app after an update constitutes acceptance of the revised policy.</p>
             </section>
 
             <!-- Section 13 -->
             <section class="policy-section" id="section-13" aria-labelledby="s13-title">
                 <h2 id="s13-title"><span class="section-num">13</span> Contact Information</h2>
-                <p>Questions about this policy or OpenCpp's data practices can be sent to: <a href="mailto:bitf25m522@pucit.edu.pk">bitf25m522@pucit.edu.pk</a> (VYORA.AI Team).</p>
+                <p>Questions about this policy or Sync4's data practices can be sent to: <a href="mailto:contact@vyora-ai.technologies">contact@vyora-ai.technologies</a> (VYORA.AI Team).</p>
             </section>
 
         </div>
@@ -917,7 +963,7 @@
         <div class="contact-block" aria-label="Contact information">
             <span class="contact-label">Contact</span>
             <div class="contact-details">
-                <span class="email"><a href="mailto:bitf25m522@pucit.edu.pk">bitf25m522@pucit.edu.pk</a></span>
+                <span class="email"><a href="mailto:contact@vyora-ai.technologies">contact@vyora-ai.technologies</a></span>
                 <span class="team"><strong>VYORA.AI Team</strong></span>
             </div>
         </div>
@@ -926,7 +972,7 @@
         FINAL DISCLAIMER
         ============================================================ -->
         <aside class="disclaimer" aria-label="Disclaimer">
-            <strong>Disclaimer:</strong> This document describes OpenCpp's behavior as of the effective date above and is not a substitute for legal advice.
+            <strong>Disclaimer:</strong> This document describes Sync4's behavior as of the effective date above and is not a substitute for legal advice.
         </aside>
 
         <!-- ============================================================
@@ -935,13 +981,13 @@
         <footer class="app-footer" aria-label="Site footer">
             <div class="footer-brand">
                 <span class="brand-icon-small" aria-hidden="true">
-                    <img src="logo opencpp main.png" alt="">
+                    <img src="sync4-logo.png" alt="">
                 </span>
-                OpenCpp
+                Sync4
             </div>
             <div class="footer-meta">
                 <span>Developed and maintained by the <strong>VYORA.AI Team</strong></span>
-                <a href="mailto:bitf25m522@pucit.edu.pk">bitf25m522@pucit.edu.pk</a>
+                <a href="mailto:contact@vyora-ai.technologies">contact@vyora-ai.technologies</a>
             </div>
         </footer>
 
@@ -968,7 +1014,6 @@
                     const target = document.getElementById(targetId);
                     if (!target) return;
 
-                    // Check if the target is in the same page
                     if (target) {
                         e.preventDefault();
                         try {
@@ -976,10 +1021,8 @@
                                 behavior: 'smooth',
                                 block: 'start'
                             });
-                            // Update URL hash without causing scroll jump
                             history.pushState(null, null, href);
                         } catch (_) {
-                            // Fallback for older browsers
                             window.location.hash = href;
                         }
                     }
