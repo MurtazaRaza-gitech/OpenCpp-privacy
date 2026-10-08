@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sync4 Privacy Policy</title>
     <meta name="description" content="Privacy Policy for Sync4, a four-language Android coding environment for C, C++, Python, and C#, developed and maintained by the VYORA.AI Team." />
+    <link rel="icon" type="image/png" href="Sync4_logo.png" />
     <style>
         /* ============================================================
                CSS Variables & Reset
@@ -793,9 +794,8 @@
         ============================================================ -->
         <header class="app-header" aria-label="Site header">
             <div class="brand">
-                <div class="brand-icon" aria-hidden="true">
-                    <!-- Save the supplied Sync4 logo image as sync4-logo.png in the same directory as this file -->
-                    <img src="sync4-logo.png" alt="Sync4 logo">
+                <div class="brand-icon">
+                    <img src="Sync4_logo.png" alt="Sync4 logo">
                 </div>
                 <div class="brand-text">
                     <div class="brand-name">
@@ -980,8 +980,8 @@
         ============================================================ -->
         <footer class="app-footer" aria-label="Site footer">
             <div class="footer-brand">
-                <span class="brand-icon-small" aria-hidden="true">
-                    <img src="sync4-logo.png" alt="">
+                <span class="brand-icon-small">
+                    <img src="Sync4_logo.png" alt="Sync4 logo">
                 </span>
                 Sync4
             </div>
@@ -1001,11 +1001,9 @@
         (function() {
             'use strict';
 
-            // Only apply if the browser supports smooth scrolling and user hasn't requested reduced motion
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (prefersReducedMotion) return;
 
-            // Use native smooth scroll for all anchor links with hash targets
             document.querySelectorAll('a[href^="#"]').forEach(function(link) {
                 link.addEventListener('click', function(e) {
                     const href = link.getAttribute('href');
@@ -1014,17 +1012,15 @@
                     const target = document.getElementById(targetId);
                     if (!target) return;
 
-                    if (target) {
-                        e.preventDefault();
-                        try {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                            history.pushState(null, null, href);
-                        } catch (_) {
-                            window.location.hash = href;
-                        }
+                    e.preventDefault();
+                    try {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        history.pushState(null, null, href);
+                    } catch (_) {
+                        window.location.hash = href;
                     }
                 });
             });
